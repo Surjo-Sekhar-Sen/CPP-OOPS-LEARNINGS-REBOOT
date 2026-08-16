@@ -1,0 +1,47 @@
+/* --- OBSIDIAN IMAGE SCALING & STYLING --- */
+
+/* 1. Global Image Polish */
+.markdown-rendered img {
+    display: block;
+    margin: 12px auto !important; /* Centers all images with vertical breathing room */
+    border-radius: 8px;           /* Gives soft, modern curved corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Adds a subtle shadow depth */
+    max-width: 100%;             /* Prevents images from ever overflowing the note page */
+    height: auto;                /* Maintains original aspect ratio perfectly */
+}
+
+/* 2. Custom Size Helpers (Using Alt-Text Tags) */
+/* Usage in note: ![[image.png|small]] */
+.markdown-rendered img[alt*="small"] {
+    max-width: 300px !important;
+}
+
+/* Usage in note: ![[image.png|medium]] */
+.markdown-rendered img[alt*="medium"] {
+    max-width: 500px !important;
+}
+
+/* Usage in note: ![[image.png|large]] */
+.markdown-rendered img[alt*="large"] {
+    max-width: 800px !important;
+}
+
+/* 3. Circular Image Helper (Great for profile pictures or avatars) */
+/* Usage in note: ![[avatar.png|circle]] */
+.markdown-rendered img[alt*="circle"] {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* 4. Side-by-Side Image Grid Gallery */
+/* Wrap your images inside a callout or list named "gallery" */
+.markdown-rendered .block-language-gallery img,
+.markdown-rendered [data-callout="gallery"] .callout-content p {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
