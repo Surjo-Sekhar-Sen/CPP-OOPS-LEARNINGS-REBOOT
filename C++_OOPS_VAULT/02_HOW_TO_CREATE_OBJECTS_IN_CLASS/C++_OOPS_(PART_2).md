@@ -26,6 +26,26 @@ Constructor ek special member function hai:
 
 ![[Pasted image 20260901223050.png]]
 
+![[Pasted image 20260902001132.png]]
+
+![[Pasted image 20260902001218.png]]
+
+## ==IMPORTANT!!==
+
+![[Pasted image 20260902001840.png]]
+
+![[Pasted image 20260902001940.png]]
+
+![[Pasted image 20260902002137.png]]
+
+## ==IS CLASS INSIDE CLASS ALLOWED??==
+
+![[Pasted image 20260902003645.png]]
+
+![[Pasted image 20260902003702.png]]
+
+![[Pasted image 20260902003715.png]]
+
 ## 3. The `this` Pointer (Under the Hood)
 
 Interview me pucha jane wala classic sawaal: **"What is `this` pointer in C++?"**
