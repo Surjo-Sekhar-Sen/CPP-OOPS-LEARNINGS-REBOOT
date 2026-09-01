@@ -27,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "C++ OOPS (PART 1).md",
+                "file": "01_OOPS_IS_LIFE/C++_OOPS_(PART_1).md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++ OOPS (PART 1)"
+              "title": "C++_OOPS_(PART_1)"
+            }
+          },
+          {
+            "id": "ff76d5d1f9232cf3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "02_HOW_TO_CREATE_OBJECTS_IN_CLASS/C++_OOPS_(PART_2).md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "C++_OOPS_(PART_2)"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -203,21 +217,24 @@
       "bases:Create new base": false
     }
   },
-  "active": "8adf8f7e7a577bfe",
+  "active": "ff76d5d1f9232cf3",
   "lastOpenFiles": [
-    "assets/Pasted image 20260831230754.png",
-    "assets/Pasted image 20260831230550.png",
-    "assets/Pasted image 20260831230101.png",
-    "assets/Pasted image 20260831225948.png",
-    "assets/Pasted image 20260831225910.png",
-    "assets/Pasted image 20260830204932.png",
-    "assets/Pasted image 20260830203523.png",
-    "assets/Pasted image 20260830203443.png",
-    "assets/Pasted image 20260830203244.png",
-    "assets/Pasted image 20260830203222.png",
-    "assets/Pasted image 20260830203040.png",
+    "assets/Pasted image 20260901223538.png",
+    "assets/Pasted image 20260901223508.png",
+    "assets/Pasted image 20260901223444.png",
+    "assets/Pasted image 20260901223345.png",
+    "assets/Pasted image 20260901223247.png",
+    "assets/Pasted image 20260901223221.png",
+    "assets/Pasted image 20260901223050.png",
+    "assets/Pasted image 20260901223027.png",
+    "02_HOW_TO_CREATE_OBJECTS_IN_CLASS/C++_OOPS_(PART_2).md",
+    "01_OOPS_IS_LIFE/C++_OOPS_(PART_1).md",
+    "02_HOW_TO_CREATE_OBJECTS_IN_CLASS",
+    "01_OOPS_IS_LIFE",
+    "assets/Pasted image 20260901222524.png",
+    "assets/Pasted image 20260901222021.png",
+    "assets/Pasted image 20260901221738.png",
     "assets",
-    "C++ OOPS LEARNINGS.md",
-    "C++ OOPS (PART 1).md"
+    "C++ OOPS LEARNINGS.md"
   ]
 }

@@ -19,8 +19,9 @@ Video me ek case study samjhai gayi: Agar 100 ya 10,000 Students ka data manage 
 
 ![[Pasted image 20260830190556.png]]
 
-### Major Limitations jo samne aati hain:
+### ==Major Limitations jo samne aati hain:==
 
+![[Pasted image 20260901214925.png]] 
 ### A. Code Messiness & Synchronization Risk
 
 Index mismatch ka massive risk rehta hai. Agar `names[2]` ke saath galti se `ages[3]` pass ho gaya, toh data corrupt ho jayega. Data logically binded nahi hai.
@@ -56,8 +57,10 @@ Procedural style me functions ke beech data share karne ke liye log aksar **Glob
     
 - **Object:** Us blueprint ka memory instance jisme actual data store hota hai.
     
+![[Pasted image 20260901221738.png]]
 
-## DIFFERENCE BETWEEN BLUEPRINT, OBJECT AND INSTANCE??
+![[Pasted image 20260901222021.png]]
+## ==DIFFERENCE BETWEEN BLUEPRINT, OBJECT AND INSTANCE??==
 
 ## Blueprint vs Object vs Instance
 
@@ -76,7 +79,8 @@ Procedural style me functions ke beech data share karne ke liye log aksar **Glob
     - **Instance** ka simple matlab: Blueprint ka ek concrete example jo **RAM me physical memory occupy karta hai**.
 ![[Pasted image 20260830202510.png]]
 
-## WHAT ARE THE PROGRAMMING PARADIGMS??
+![[Pasted image 20260901222524.png]]
+## ==WHAT ARE THE PROGRAMMING PARADIGMS??==
 
 | **Paradigm**                                 | **Core Idea**                                                                                                 | **Main Focus**                     | **Limitation**                                                                            |
 | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -85,7 +89,7 @@ Procedural style me functions ke beech data share karne ke liye log aksar **Glob
 | **Modular (e.g., Modula-2, C with headers)** | Code ko alag-alag files/modules me divide karna.                                                              | File separation.                   | Logic separate hoti hai par direct data-behavior encapsulation aur inheritance nahi hota. |
 | **OOPs (e.g., C++, Java, C#)**               | Real-world simulation. Data + Behavior packaged in single units (Objects).                                    | Entities and their interactions.   | Procedural se slight setup overhead, par massive scalable architectures banti hain.       |
 
-## DIFFERENCE BETWEEN struct AND class??
+## ==DIFFERENCE BETWEEN struct AND class??==
 
 ### C ke `struct` me kya kami thi?
 
@@ -110,11 +114,11 @@ C++ me `struct` aur `class` dono ko functions aur access modifiers allow kar diy
 
 ![[Pasted image 20260830202856.png]]
 
-## WHAT IS DIFFERENCE BETWEEN global, public, private AND protected??
+## ==WHAT IS DIFFERENCE BETWEEN global, public, private AND protected??==
 
 ![[Pasted image 20260830203040.png]]
 
-### Summary of Access Modifiers
+### ==Summary of Access Modifiers==
 
 - **`private` (Default in Class):** High security. Internal variables jo galat modify hone par crash karwa sakte hain (e.g., Player `health`, `balance`, pointers).
     
@@ -124,7 +128,7 @@ C++ me `struct` aur `class` dono ko functions aur access modifiers allow kar diy
     
 - **`global`:** Sabke liye open, par enterprise/game code me avoid kiya jata hai kyunki ye state corruption ka sabse bada source hai.
 
-## EXACT DIFFERENCE BETWEEN global AND public??
+## ==EXACT DIFFERENCE BETWEEN global AND public??==
 
 ## Global vs Public me Difference Kya Hai?
 
@@ -144,7 +148,7 @@ Dono me zameen-aasman ka fark hai:
 
 ![[Pasted image 20260830203244.png]]
 
-## HOW OBJECT'S SIZE IS CALCULATED AND MEMORY MANAGEMENT IS DONE??
+## ==HOW OBJECT'S SIZE IS CALCULATED AND MEMORY MANAGEMENT IS DONE??==
 
 ## 1. Object Ka Size Kaise Calculate Hota Hai?
 
@@ -162,7 +166,7 @@ Compiler CPU cache performance ke liye variables ko 4-byte ya 8-byte boundaries 
     
 - `Student` class me: `int` (4) + padding (4) + `std::string` (32 bytes MSVC / 24 bytes GCC) = **32 to 40 bytes**.
     
-## Structure Padding aur Alignment (Kyu laya gaya aur kaise kaam karta hai?)
+## ==Structure Padding aur Alignment (Kyu laya gaya aur kaise kaam karta hai?)==
 
 ### Ye concept kyu laya gaya? (The Hardware Reason)
 
@@ -196,7 +200,7 @@ Dekhte hain C++ compiler is structure ko kaise arrange karta hai:
 - **Actual `sizeof(Example)`:** **12 bytes** (6 bytes data + 6 bytes empty padding).
     
 
-### Pro-Dev / Game-Dev Optimization Tip:
+### ==Pro-Dev / Game-Dev Optimization Tip:==
 
 Agar data members ko **decreasing order of size** (bade se chota) arrange kar dein:
 
@@ -204,7 +208,7 @@ Agar data members ko **decreasing order of size** (bade se chota) arrange kar de
 
 **Optimized `sizeof(OptimizedExample)` = 8 bytes!** (4 bytes memory bacha li bina functionality badle). Game development me jab 100,000 objects spawn hote hain, ye alignment hazaron MBs RAM bacha leti hai.
 
-### HOW THIS OPTIMISATION WORKS??
+### ==HOW THIS OPTIMISATION WORKS??==
 
 ### 1. `char a` ke baad 3 bytes padding kyu nahi aayi?
 
@@ -273,7 +277,7 @@ Aapko alignment decide karte waqt bas ye dekhna hai ki aapki class ke andar **sa
 2. **Empty Class Size = 1 Byte:** Agar class me kuch bhi nahi hai (`class Empty {};`), toh `sizeof(Empty)` **1 byte** hota hai taaki har object ko unique memory address mil sake.
     
 
-## 2. Kya Objects Sirf Stack Me Bante Hain? (Stack vs Heap)
+## ==2. Kya Objects Sirf Stack Me Bante Hain? (Stack vs Heap)==
 
 Bilkul nahi. Object kahan banega, ye is baat par depend karta hai ki aapne usko kaise allocate kiya hai:
 
@@ -286,7 +290,7 @@ Bilkul nahi. Object kahan banega, ye is baat par depend karta hai ki aapne usko 
 |**Lifetime**|Scope based (`{}` ke bahar nikalte hi khatam)|Manual (Jab tak `delete` na karo, tab tak RAM me rahega)|
 |**Game Dev Usage**|Temporary calculations, local loop variables|Spawning enemies, loading world maps, asset loading|
 
-## DOES public, private AND protected MAKE CHANGES IN THE SIZE OF OBJECT??
+## ==DOES public, private AND protected MAKE CHANGES IN THE SIZE OF OBJECT??==
 
 ### 1. Kya `private`, `public` ya `protected` se Object ke Size par koi farak padta hai?
 
@@ -300,11 +304,118 @@ Access modifiers (`private`, `public`, `protected`) sirf **Compiler ke security 
     
 - `private int a;` aur `public int a;` dono memory me exact **4 bytes** hi lenge aur object ka layout bilkul same rahega.
 
-## 2. Kya Class ko khud `private` ya `public` banaya ja sakta hai?
+## ==2. Kya Class ko khud `private` ya `public` banaya ja sakta hai?==
 
 - **C++ me:** Top-level class ko `private` ya `public` nahi banate. C++ me top-level classes normal hoti hain (ya namespaces me hoti hain). Haan, agar **Nested Class** (ek class ke andar dusri class) banayein, toh inner class ko `private` ya `public` kar sakte hain:
 ![[Pasted image 20260830204932.png]]
 
+## ==DO FUNCTIONS ALSO HAVE A SIZE??==
+
+## 1. Class vs Function: Size Ka Fundamental Difference
+
+Class aur Function memory ke do alag-alag hisson me rehte hain:
+
+- **Class / Object (`.data` / Stack / Heap Segment):** Ye **State (Data)** store karta hai (jaise `int health`, `float x`). Iska size uske andar ke variables aur padding ke barabar hota hai.
+    
+- **Function (`.text` / Code Segment):** Ye **Instructions (Machine Code)** store karta hai. Function ke andar variables memory me tab tak exist nahi karte jab tak function call na ho. Function ka size variables ka sum nahi hota, balki uske **CPU Machine Instructions (Bytes of Binary Code)** ka sum hota hai.
+
+![[Pasted image 20260901212525.png]]
+
+## 2. C++ Me Normal Function Ka Size Kaise Nikalta Hai?
+
+C++ me agar aap `sizeof(myFunction)` likhoge, toh compiler **Error** dega ya warning dega, kyunki C++ standard me function koi data object nahi hai.
+
+Lekin hardware / binary level par **function ka physical size hota hai**:
+
+### Machine Code me Function Size
+
+Jab C++ compile hota hai, function CPU instructions me convert hota hai:
+
+![[Pasted image 20260901212602.png]]
+
+## 3. Class Ke Andar Functions Ka Size (Object Size Par Asar)
+
+### A. Non-Virtual Functions (0 Bytes in Object)
+
+![[Pasted image 20260901212633.png]]
+
+- `sizeof(Player)` = **4 bytes**.
+    
+- Functions chahe 1,000 ho ya 10,000 lines ke, object ke size me **0 bytes** contribute karte hain. Saare functions code segment (`.text`) me ek hi jagah rehte hain aur har object ke liye `this` pointer ke through reuse hote hain.
+    
+
+### B. Virtual Functions (8 Bytes Pointer Overhead)
+
+![[Pasted image 20260901212705.png]]
+
+- Virtual function aate hi object ke andar **`vptr` (8 bytes)** add hota hai jo `vtable` ko point karta hai.
+    
+- `sizeof(Player)` = **16 bytes** (8 bytes `vptr` + 4 bytes `health` + 4 bytes padding).
+    
+
+## 4. Lambda Functions Ka Size Kya Hota Hai?
+
+C++ me Lambda koi magical function nahi hai. **Compiler parde ke peeche ek anonymous `struct` (Functor) generate kar deta hai.**
+
+Isliye **Lambda ka size = Captured Variables ka size!**
+
+![[Pasted image 20260901212804.png]]
+
+## ==HOW ARE FUNCTIONS DIFFERENET IN JS AND C++??==
+
+## JavaScript Me Functions Ka Size Aur Unka Nature
+
+JavaScript me **Function ek Executable Object hai**.
+
+C++ me function sirf machine instructions ka ek address hota hai, lekin JS me function ek full-fledged heap object hota hai jo `Function.prototype` se inherit karta hai.
+
+![[Pasted image 20260901212851.png]]
+
+### JS Function V8 Engine Me Kitni Memory Leta Hai?
+
+V8 (Node.js / Chrome) me ek function heap par **~32 se 64 bytes** ka base object leta hai, jisme rehta hai:
+
+1. **Scope Context / Closure Pointer:** Outer variables ka reference.
+    
+2. **Prototype Object:** `greet.prototype` ka reference.
+    
+3. **Bytecode / Machine Code Reference:** Ignition bytecode ya TurboFan JIT machine code ka pointer.
+    
+4. **Properties Map:** `name`, `length`, `caller` etc.
+
+## =="First-Class Citizen" (First-Class Function) Kya Hota Hai?==
+
+Programming language theory me kisi entity ko **"First-Class Citizen"** tab bola jata hai jab uske saath wo saare kaam kiye ja sakein jo ek normal variable (jaise `int`, `string`) ke saath hote hain:
+
+### 3 Core Properties of First-Class Functions:
+
+### 1. Function ko Variable me Store Karna
+
+![[Pasted image 20260901212930.png]]
+
+### 2. Function ko Dusre Function me Argument (Callback) Pass Karna
+
+![[Pasted image 20260901213019.png]]
+
+### 3. Function se Ek Naya Function Return Karna (Higher-Order Functions / Closures)
+
+![[Pasted image 20260901213046.png]]
+
+- **JavaScript, Python, Swift, Kotlin:** Functions inherently **First-Class Citizens** hain.
+    
+- **C:** Pure first-class nahi hai (sirf C-style function pointers pass ho sakte hain, closures/anonymous functions nahi ban sakte).
+    
+- **Modern C++ (C++11 onward):** `std::function`, Lambdas aur Callables ke through **First-Class behaviour** support karta hai.
+    
+
+## Summary Matrix
+
+|**Concept**|**C++ Normal Function**|**C++ Lambda**|**JavaScript Function**|
+|---|---|---|---|
+|**Kya Object hai?**|Nahi (Address in `.text`)|Haan (Compiler generated struct)|Haan (`Function` Object on Heap)|
+|**Size Kispar Depend Karta Hai?**|Compiled Assembly Instructions|Captured variables ka size|V8 Object metadata + Closure context|
+|**Object Size me Contribution**|**0 Bytes** (Unless `virtual` $\rightarrow$ 8 bytes `vptr`)|Struct ke size ke barabar|Heap object allocation (~40-64 bytes)|
+|**First-Class Citizen?**|Via Function Pointers / `std::function`|Haan (Captures + Callables)|**Haan (Pure First-Class)**|
 
 ## 4. Game Development & Performance Perspective (Extra Industry Insight)
 
@@ -337,7 +448,7 @@ Game me har entity ek Object hoti hai:
     
     - Object memory me ek contiguous block of memory hota hai jo apne non-static data members ko store karta hai (functions code segment me rehte hain, har object ke andar repeat nahi hote).
 
-## HOW main() FUNCTION IS NECESSARY FOR C, C++ TYPE LANGUAGES AND NOT IN PYTHON, JS??
+## ==HOW main() FUNCTION IS NECESSARY FOR C, C++ TYPE LANGUAGES AND NOT IN PYTHON, JS??==
 
 ## `main()` Function: C/C++ vs Python/JS (CPU kaise execute karta hai?)
 
