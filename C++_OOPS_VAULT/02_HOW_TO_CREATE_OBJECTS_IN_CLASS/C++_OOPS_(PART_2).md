@@ -176,6 +176,38 @@ Interview me pucha jane wala classic sawaal: **"What is `this` pointer in C++?"*
     
 3. **Industry Standard:** Real projects (jaise Unreal Engine ya standard backends) me har class apni separate `.h` (header) aur `.cpp` (source) file me banti hai taaki pure project me reuse ho sake.
 
+## ==HOW OBJECT'S MEMBERS ARE GIVEN SIZE AND MEMORY??==
+
+![[Pasted image 20260903192015.png]]
+
+![[Pasted image 20260903192034.png]]
+
+### Jab aap `S1.id = 1;` likhte ho toh kya hota hai?
+
+Compiler koi naya variable nahi banata. Wo simple calculation karta hai:
+
+$$\text{Target Address} = \text{Base Address of S1 } (0x1000) + \text{Offset of } id\ (0) = 0x1000$$
+
+Aur us address par `1` store kar deta hai.
+
+### Jab aap `S1.age = 21;` likhte ho:
+
+$$\text{Target Address} = \text{Base Address of S1 } (0x1000) + \text{Offset of } age\ (4) = 0x1004$$
+
+Aur us address par `21` store kar deta hai.
+
+> **Key Insight:** `id`, `age`, aur `name` koi azaad variables nahi hain. Ye `S1` naam ke ek hi bade flat memory box ke alag-alag partitions (offsets) hain.
+
+## ==HOW FUNCTIONS INSIDE CLASSES PASS A POINTER??==
+
+![[Pasted image 20260903192207.png]]
+
+![[Pasted image 20260903192224.png]]
+
+![[Pasted image 20260903192303.png]]
+
+![[Pasted image 20260903192335.png]]
+
 ## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
 
 Copy constructor ka signature dhyan se dekho:
