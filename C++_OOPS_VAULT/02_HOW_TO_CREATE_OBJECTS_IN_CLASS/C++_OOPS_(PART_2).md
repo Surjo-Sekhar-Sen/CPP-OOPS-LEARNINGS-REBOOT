@@ -208,6 +208,143 @@ Aur us address par `21` store kar deta hai.
 
 ![[Pasted image 20260903192335.png]]
 
+## ==HOW EARLIER THIS WAS DONE IN C USING PROCEDURAL PROGRAMMING!!==
+
+## 1. C Language me Bina OOPs ke sab kaise chalta tha? (Procedural Programming)
+
+Aapka sawaal: _"Procedural matlab exactly kya hota hai? Aur C me bina `this` ke kaise kaam hota tha?"_
+
+### Procedural Programming Kya Hai?
+
+"Procedure" ka matlab hota hai **Function** ya **Steps ka Sequence** (Recipe ki tarah: Step 1 karo, Step 2 karo, Step 3 karo).
+
+- Yahan **Data (Variables)** alag bhatakta hai, aur **Functions (Logic)** alag bhatakte hain.
+    
+- Functions ko nahi pata hota ki data kiska hai, jab tak aap zabardasti us function ke haath me data ka address na thama do.
+    
+### C Language ka Real Example:
+
+C me `class` nahi hoti thi, sirf `struct` hota tha jisme function daalna allowed nahi tha:
+
+![[Pasted image 20260903234925.png]]
+
+### Yahan dikkat kya thi?
+
+1. **No Relationship:** `student_study` function aur `struct Student` me koi formal connection nahi tha. Koi bhi developer `s1.id = -9999;` modify kar sakta tha.
+    
+2. **Clunky Syntax:** Har jagah `func(&object)` likhna padta tha. Agar 50 methods hote, toh 50 jagah `&object` manually pass karo.
+    
+
+### C++ ne kya kiya? (Syntactic Sugar over C)
+
+C++ ke creator (Bjarne Stroustrup) ne kaha: _"C ke is pattern ko automate kar dete hain taaki coder ko manually `&s1` na pass karna pade aur syntax natural lage: `s1.study()`."_
+
+## 2. `Student* const this` Ka Ek-Ek Word Ka Matlab
+
+Jab aap C++ me likhte ho:
+
+![[Pasted image 20260903235807.png]]
+
+Ab is signature ko todte hain: `Student* const this`:
+
+### 1. `Student*`
+
+- Ye ek pointer hai jo `Student` type ke object ke memory address ko hold karta hai.
+    
+- Agar `S1` ka address `0x1000` hai, toh `this = 0x1000`.
+    
+
+### 2. `const` (Pointer ke baad wala `const`)
+
+C++ me do tarah ke const hote hain:
+
+- `const int* p`: Pointer jisko point kar raha hai, us **data** ko nahi badal sakte.
+    
+- `int* const p`: Pointer ke andar jo **address** hai, us address ko nahi badal sakte (**Constant Pointer**).
+    
+
+Yahan `Student* const this` ka matlab hai: **`this` ek Constant Pointer hai.**
+
+- Aap function ke andar kisi aur object ka address zabardasti `this` me nahi daal sakte:
+
+![[Pasted image 20260903235850.png]]
+
+- `this` jis object ke liye call hua hai, wo marte dam tak usi object ko point karega.
+    
+
+### 3. `this`
+
+- Ye compiler ka reserved keyword hai, jo calling object ke address ka identifier ban jata hai.
+    
+
+## 3. CPU Calling Convention: Ye Address Pass Kaise Hota Hai?
+
+Aapka sawaal: _"Ye khud se kaise aur kyu hota hai? CPU level par kya hota hai?"_
+
+Jab aap `S1.study();` likhte ho:
+
+![[Pasted image 20260903235931.png]]
+
+Hardware level par:
+
+- x86-64 architecture par ek rule hota hai jisko **`__thiscall` calling convention** bolte hain.
+    
+- CPU function ko execute karne se theek pehle ek specific register (jaise `RCX` ya `RDI`) me calling object ka memory address daal deta hai.
+    
+- Function jab shuru hota hai, wo us register se address uthata hai aur usko `this` maan leta hai. Isliye ye 100% automated aur hardware-level par optimized hota hai.
+
+## ==HOW FUNCTIONS ARE ONLY MADE ONCE OR USED ONCE??==
+
+## "Function Ek Hi Baar Hota Hai" Ka Matlab Kya Hai? Aur Ye Save Kahan Hota Hai?
+
+Aapne pucha: _"U said ki function ka koi size nahi hota lekin phir ye code segment .text kya hai?"_
+
+Is nuance ko dhyan se samjho:
+
+### Memory Ke Do Alag Duniya:
+
+![[Pasted image 20260904001305.png]]
+
+### Meaning of "Function Object Ke Andar Size Nahi Leta":
+
+Jab hum bolte hain ki `sizeof(Student)` me function ka size count nahi hota, uska matlab ye hai:
+
+- Agar aapke game me **10,000 Enemies** hain, toh RAM me **10,000 health variables** banenge (Stack ya Heap par).
+    
+- Lekin unka `Attack()` function RAM ke **`.text` segment me sirf EK HI BAAR (single copy)** load hoga.
+    
+- Har 10,000 objects usi single function ko use karte hain bas apna-apna alag `this` pointer bhej kar!
+    
+
+### `.text` Segment Kya Hai?
+
+Jab aap `.cpp` file compile karke `.exe` ya binary banate ho:
+
+1. Aapka C++ code assembly instructions me badalta hai (`mov`, `add`, `push`, `ret`).
+    
+2. Ye machine instructions binary file ke **`.text` section** me save hoti hain.
+    
+3. Jab aap program double click karke run karte ho, OS ka loader is `.text` segment ko RAM me **Read-Only Memory** me daal deta hai taaki koi virus ya bug aapke chalte program ke instructions ko overwrite na kar sake.
+    
+4. Us function ka binary me size hota hai (e.g., 50 bytes of machine instructions), **lekin wo size `.text` segment me hota hai, aapke object `S1` ke andar nahi!**
+
+![[Pasted image 20260904003919.png]]
+
+![[Pasted image 20260904003933.png]]
+
+## ==WHAT IS struct ACTUALLY!! AND WHAT IS A typedef??==
+
+## Part 1: C language me `struct` aur `struct Student* s` kaise kaam karta hai?
+
+### 1. `struct Student* s` ka kya matlab hai?
+
+Jab C me likhte hain:
+
+![[Pasted image 20260904022841.png]]
+
+![[Pasted image 20260904022931.png]]
+
+
 ## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
 
 Copy constructor ka signature dhyan se dekho:
