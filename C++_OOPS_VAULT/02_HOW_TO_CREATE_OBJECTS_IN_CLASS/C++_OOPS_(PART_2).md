@@ -344,6 +344,73 @@ Jab C me likhte hain:
 
 ![[Pasted image 20260904022931.png]]
 
+![[Pasted image 20260904200817.png]]
+
+## ==IS struct Student A TYPE OR JUST Student??==
+
+## 1. `struct Student` type kyu hai, sirf `Student` kyu nahi? (C vs C++)
+
+C aur C++ me `struct` ke naam handling me ek chhota sa difference hota hai.
+
+![[Pasted image 20260904204621.png]]
+
+![[Pasted image 20260904204648.png]]
+
+![[Pasted image 20260904204718.png]]
+
+### C Language (Strict Naming Rule)
+
+C me jab aap `struct Student { int id; };` banate ho, toh naye type ka poora naam **`struct Student`** hota hai, na ki sirf `Student`.
+
+- Compiler `Student` ko direct type nahi maanta.
+    
+- Isiliye C me variable banate waqt har baar **`struct Student s1;`** likhna padta hai.
+    
+
+Agar C me aapko sirf `Student s1;` likhna ho, toh C coders **`typedef`** use karte the:
+
+![[Pasted image 20260904200933.png]]
+
+### C++ Language (Modern Improvement)
+
+C++ ne is extra typing ko hata diya. C++ me jab aap `struct Student { int id; };` banate ho, toh `Student` automatically ek valid type name ban jata hai.
+
+- C++ me aap `Student s1;` directly likh sakte ho, `struct` word dobara likhne ki zaroorat nahi hoti.
+
+## ==WHAT ARE FUNCTION POINTERS AND HOW ARE THEY MADE?? WHY THEY CAME INTO PICTURE IN C==
+
+### ==Kya C ke `struct` me functions nahi hote?==
+
+**C ke `struct` ke andar direct functions LIKHNA ALLOWED NAHI HAI.**
+
+C me ye code **Compile Error** dega:
+
+![[Pasted image 20260904205031.png]]
+
+#### Toh C me data aur functions ko combine kaise karte the?
+
+C me functions ko structure ke bahar hi likhna padta tha. Agar structure ke andar function ka reference rakhna bhi hota tha, toh **Function Pointers** use karne padte the:
+
+![[Pasted image 20260904205056.png]]
+
+Ye bohot complex aur mess ho jata hai. Isiliye C++ ne `class` ka concept laya jisme functions aur data ek sath reh sakein aur address passing (`this`) automatic ho sake.
+
+## ==Function Pointer Kya Chiz Hai?==
+
+Normally, hum variables me **Data** (integers, floats, strings) store karte hain, jaise `int x = 10;`. `x` RAM ke Data/Stack segment me ek memory location ko point karta hai jahan `10` rakha hai.
+
+**Function Pointer** ek aisa pointer variable hota hai jo data ki jagah **RAM ke `.text` (Code) segment me kisi Function ke Pehle Instruction ke Address** ko store karta hai!
+
+![[Pasted image 20260904204903.png]]
+
+## Function Pointer Kaise Banta Aur Kaam Karta Hai?
+
+### Step 1: Syntax Samjho
+
+Normal variable pointer:
+
+![[Pasted image 20260904204924.png]]
+
 
 ## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
 
