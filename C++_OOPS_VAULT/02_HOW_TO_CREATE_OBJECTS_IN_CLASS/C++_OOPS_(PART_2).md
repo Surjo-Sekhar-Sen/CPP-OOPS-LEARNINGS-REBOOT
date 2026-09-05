@@ -500,17 +500,25 @@ Ideally, C me purane tareeqe se ise dereference karke aise call kiya jata tha:
 C
 
 ```
-(*s1.studyLogic)(5); // Step 1: Pointer dereference karo (*), Step 2: (5) pass karke call karo
+(*(s1.studyLogic))(5); // Step 1: Pointer dereference karo (*), Step 2: (5) pass karke call karo
 ```
 
-Lekin C compiler ke creators ne dekha ki `(*s1.studyLogic)(5)` likhna ugly aur confusing hai, jabki `studyLogic` pehle se hi ek pointer hai. Unhone shortcut de diya:
+Lekin C compiler ke creators ne dekha ki `(*(s1.studyLogic))(5)` likhna ugly aur confusing hai, jabki `studyLogic` pehle se hi ek pointer hai. Unhone shortcut de diya:
 
 C
 
 ```
-s1.studyLogic(5); // Cleaner C syntax (Compiler internally (*s1.studyLogic)(5) hi karta hai)
+s1.studyLogic(5); // Cleaner C syntax (Compiler internally 
+(*(s1.studyLogic))(5) hi karta hai)
 ```
 
+![[Pasted image 20260906030923.png]]
+
+![[Pasted image 20260906030940.png]]
+
+![[Pasted image 20260906031940.png]]
+
+![[Pasted image 20260906031915.png]]
 ## Complete Summary (Mental Model)
 
 1. **`add` vs `&add`:** Regular functions ke case me dono **100% identical** hain. Compiler function ke naam ko automatically address me badal (decay kar) deta hai.
