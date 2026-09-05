@@ -525,6 +525,21 @@ s1.studyLogic(5); // Cleaner C syntax (Compiler internally (*s1.studyLogic)(5) h
 
 ![[Pasted image 20260905040321.png]]
 
+## ==WHAT THINGS ARE ALLOWED IN A CLASS??==
+
+![[Pasted image 20260905201615.png]]
+
+![[Pasted image 20260905202100.png]]
+
+![[Pasted image 20260905201713.png]]
+
+![[Pasted image 20260905201908.png]]
+
+![[Pasted image 20260905201943.png]]
+
+![[Pasted image 20260905202846.png]]
+
+![[Pasted image 20260905202903.png]]
 
 ## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
 

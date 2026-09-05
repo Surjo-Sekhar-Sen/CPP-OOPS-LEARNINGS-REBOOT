@@ -15,10 +15,19 @@ class Student{
             return;
         }
 
-        &Student::print();
+        // Student::print(); // ALL THESE THINGS ARE NOT ALLOWED AS INSIDE A CLASS 
+        // WE CAN ONLY DECLARE FUNCTIONS, VARIABLES; BUT NOT CALL A FUNCTION OR VALUE OR SO!!
+        // &Student::print();
+        // &Student::print;
 
         void study(){
-            print();
+            auto val = Student::print;
+            cout << val << endl;
+            print(); // NO ERROR WHILE CALLING INSIDE A FUNCTION OR ASKING FOR AN ADDRESS!!
+            Student::print(); // GIVES SAME RESULT LIKE print()!! WE JUST EXPLICITELY TOLD THE COMPILER
+            // THAT IT IS INSIDE THE Student SCOPE!!
+            &Student::print(); // THIS CREATES A PROBLEM!!
+            return;
         }
 };
 
