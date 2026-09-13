@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_OOPS_IS_LIFE/C++_OOPS_(PART_1).md",
-                "mode": "preview",
+                "file": "02_HOW_TO_CREATE_OBJECTS_IN_CLASS/C++_OOPS_(PART_2).md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C++_OOPS_(PART_1)"
+              "title": "C++_OOPS_(PART_2)"
             }
           },
           {
@@ -50,7 +50,7 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -217,21 +217,21 @@
       "bases:Create new base": false
     }
   },
-  "active": "ff76d5d1f9232cf3",
+  "active": "8adf8f7e7a577bfe",
   "lastOpenFiles": [
-    "assets/Pasted image 20260906031940.png",
-    "assets/Pasted image 20260906031915.png",
-    "assets/Pasted image 20260906030940.png",
-    "assets/Pasted image 20260906030923.png",
-    "assets/Pasted image 20260905202903.png",
-    "assets/Pasted image 20260905202846.png",
-    "assets/Pasted image 20260905202837.png",
-    "assets/Pasted image 20260905202100.png",
-    "assets/Pasted image 20260905201943.png",
-    "assets/Pasted image 20260905201908.png",
-    "assets/Pasted image 20260905201713.png",
-    "02_HOW_TO_CREATE_OBJECTS_IN_CLASS/C++_OOPS_(PART_2).md",
+    "assets/Pasted image 20260913160253.png",
+    "assets/Pasted image 20260913160036.png",
+    "assets/Pasted image 20260913160012.png",
+    "assets/Pasted image 20260913155925.png",
+    "assets/Pasted image 20260913155754.png",
+    "assets/Pasted image 20260913155735.png",
+    "assets/Pasted image 20260913155710.png",
+    "assets/Pasted image 20260913155609.png",
+    "assets/Pasted image 20260913155528.png",
+    "assets/Pasted image 20260913155424.png",
+    "assets/Pasted image 20260913155353.png",
     "01_OOPS_IS_LIFE/C++_OOPS_(PART_1).md",
+    "02_HOW_TO_CREATE_OBJECTS_IN_CLASS/C++_OOPS_(PART_2).md",
     "02_HOW_TO_CREATE_OBJECTS_IN_CLASS",
     "01_OOPS_IS_LIFE",
     "assets",

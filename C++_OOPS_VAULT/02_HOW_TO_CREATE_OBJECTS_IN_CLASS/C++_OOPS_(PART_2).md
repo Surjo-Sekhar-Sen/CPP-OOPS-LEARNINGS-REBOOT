@@ -549,6 +549,93 @@ s1.studyLogic(5); // Cleaner C syntax (Compiler internally
 
 ![[Pasted image 20260905202903.png]]
 
+![[Pasted image 20260913155302.png]]
+
+![[Pasted image 20260913155353.png]]
+
+![[Pasted image 20260913155528.png]]
+
+![[Pasted image 20260913155609.png]]
+
+![[Pasted image 20260913155424.png]]
+
+![[Pasted image 20260913155710.png]]
+
+![[Pasted image 20260913155735.png]]
+
+![[Pasted image 20260913155754.png]]
+
+## ==WHY S1.*S1.classmemfnptr() DOES NOT WORK OR S1.(*S1.classmemfnptr)() DOES NOT WORK EITHER!!??==
+
+![[Pasted image 20260913155925.png]]
+
+![[Pasted image 20260913160012.png]]
+
+![[Pasted image 20260913160036.png]]
+
+## ==WHAT IS DIFFERENCE BETWEEN ->, . , .* ,  ->* OPERATORS??==
+
+## Sabhi Operators Ka Ultimate Decision Matrix (`.`, `->`, `.*`, `->*`)
+
+Aap jo baar-baar confuse ho rahe ho, wo in charon operators ke context ko lekar hai. Is decision matrix ko apne dimag me print kar lo — iske bahar C++ me kuch nahi hota:
+
+![[Pasted image 20260913160253.png]]
+
+## Ek Hi Code Me Charo Operators Ka Live Comparison
+
+Isko code ke saath dekho, sab doubt ek second me dharashayi ho jayenge:
+
+C++
+
+```
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    int id = 101;
+
+    void study(int hours) {
+        cout << "Studying for " << hours << " hours! ID: " << this->id << endl;
+    }
+};
+
+int main() {
+    // -------------------------------------------------------------
+    // SETUP: Objects and Pointers
+    // -------------------------------------------------------------
+    Student s1;                 // Direct Object
+    Student* objPtr = &s1;      // Pointer to Object
+
+    // Member Function Pointer Variable
+    void (Student::*memFnPtr)(int) = &Student::study;
+
+    // -------------------------------------------------------------
+    // CASE 1: Standard Direct Member Access (Use '.' and '->')
+    // -------------------------------------------------------------
+    s1.study(4);          // Operator 1: Dot (.)       --> Direct Object + Normal Member
+    objPtr->study(4);     // Operator 2: Arrow (->)    --> Object Pointer + Normal Member
+
+    // -------------------------------------------------------------
+    // CASE 2: Member Pointer Variable Access (Use '.*' and '->*')
+    // -------------------------------------------------------------
+    (s1 .* memFnPtr)(4);      // Operator 3: Dot-Star (.*)   --> Direct Object + Member Pointer
+    (objPtr ->* memFnPtr)(4); // Operator 4: Arrow-Star (->*) --> Object Pointer + Member Pointer
+
+    return 0;
+}
+```
+
+## Direct Summary Checklist (Kab Kaunsa Use Karna Hai?)
+
+1. **`s1.id` (Dot `.`)** $\rightarrow$ Normal Object ke andar se normal member uthana.
+    
+2. **`ptr->id` (Arrow `->`)** $\rightarrow$ Object Address ke andar se normal member uthana.
+    
+3. **`(s1.*memFnPtr)()` (Dot-Star `.*`)** $\rightarrow$ Normal Object ke upar ek Function Address Variable ko execute karna.
+    
+4. **`(ptr->*memFnPtr)()` (Arrow-Star `->*`)** $\rightarrow$ Object Address ke upar ek Function Address Variable ko execute karna.
+
 ## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
 
 Copy constructor ka signature dhyan se dekho:
