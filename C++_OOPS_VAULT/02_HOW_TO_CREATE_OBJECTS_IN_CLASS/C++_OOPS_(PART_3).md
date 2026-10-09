@@ -133,6 +133,14 @@ Isiliye ISO C++ Standards Committee ne explicit rule lock kiya:
 
 ![[Pasted image 20260915190413.png]]
 
+
+## ==CAN WE USE DOUBLE OR VOID* INSTEAD OF UNSIGNED LONG LONG??==
+
+![[Pasted image 20260924223119.png]]
+
+![[Pasted image 20260924223153.png]]
+
+![[Pasted image 20260924223214.png]]
 ## ==SPECIFIERS USED IN C !!==
 
 ![[Pasted image 20260915190451.png]]
@@ -151,8 +159,33 @@ Isiliye ISO C++ Standards Committee ne explicit rule lock kiya:
 
 ## ==WHAT IS REINTERPRET CAST AND HOW  IS IT USED HERE??==
 
+![[Pasted image 20260923201523.png]]
 
+![[Pasted image 20260923201559.png]]
 
+![[Pasted image 20260923201626.png]]
+
+![[Pasted image 20260924222352.png]]
+
+## ==WHAT IS THIS  _t OR uint8_t ??==
+
+![[Pasted image 20260924223452.png]]
+
+![[Pasted image 20260924223508.png]]
+
+![[Pasted image 20260924223525.png]]
+
+![[Pasted image 20260924223542.png]]
+
+![[Pasted image 20260924223859.png]]
+
+![[Pasted image 20260924223916.png]]
+
+![[Pasted image 20260924224108.png]]
+
+![[Pasted image 20260924224514.png]]
+
+![[Pasted image 20260924224651.png]]
 
 ## ==WHAT IS DIFFERENCE BETWEEN ->, . , .* ,  ->* OPERATORS??==
 
@@ -217,49 +250,3 @@ int main() {
     
 4. **`(ptr->*memFnPtr)()` (Arrow-Star `->*`)** $\rightarrow$ Object Address ke upar ek Function Address Variable ko execute karna.
 
-## 4. Copy Constructor: Deep Copy vs Shallow Copy & The `&` Pass-by-Reference Trap
-
-Copy constructor ka signature dhyan se dekho:
-
-![[Pasted image 20260901223247.png]]
-
-### Interview Question 1: Copy constructor me `&` (Pass-by-Reference) mandatory kyu hai?
-
-Agar aap `&` hata doge:
-
-![[Pasted image 20260901223345.png]]
-
-- C++ me pass-by-value karte waqt argument ki **copy** banti hai.
-    
-- Copy banane ke liye compiler **Copy Constructor** ko call karega.
-    
-- Wo Copy Constructor dobara pass-by-value dekhega aur fir se Copy Constructor ko call karega.
-    
-- Isse **Infinite Recursive Loop (Stack Overflow)** ban jayega. Isliye compiler bina `&` ke code compile hi nahi karta.
-    
-
-### Interview Question 2: `const` kyu lagate hain?
-
-Taaki source object (`srcObj`) galti se modify na ho jaye (Read-only guarantee).
-
-## 5. Stack vs Heap Allocation & The Dynamic Memory Lifecycle
-
-Video me dikhaya gaya ki memory allocation do tareeqon se hoti hai:
-
-![[Pasted image 20260901223444.png]]
-
-### Destruction of Heap Pointers inside Destructor:
-
-Agar class ke andar dynamic memory allocate hui ho:
-
-![[Pasted image 20260901223508.png]]
-
-## 6. Execution Flow & Output Trace (Mental Model)
-
-Agar ye code chale:
-
-![[Pasted image 20260901223538.png]]
-
-- **Constructor Calling Order:** `A` pehle construct hoga, fir `B`.
-    
-- **Destructor Calling Order (Stack is LIFO - Last In First Out):** `B` pehle destroy hoga, fir `A`
